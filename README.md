@@ -6,19 +6,17 @@
 [![Closed issues](https://img.shields.io/github/issues-closed/Scorpikor/pynod-mirror-tool?color=darkgreen&cacheSeconds=0)](https://github.com/rzc0d3r/ESET-KeyGen/issues?q=is%3Aissue+is%3Aclosed)
 ![License](https://img.shields.io/github/license/Scorpikor/pynod-mirror-tool)
 
+Это форк с настройками для запуска в containermanger 
 python-mirror-tool is a Python script for creating a mirror of ESET NOD32 antivirus databases
 
 pynod-mirror-tool  - скрипт, написанный на Рython для создания зеркала баз антивируса ESET NOD32. Поддерживаются операционные системы Windows, Linux, FreeBSD и возможен запуск в Docker, для работы требуется Python 3.x версии и NGINX для раздачи баз антивирусам.
 
 # Установка:
-1) cd pynod-mirror-tool
-2) pip3 install -r requiments.txt
+1) заводим проект в docker
+2) ждем инициальзации двух контейнеров ngx и wrk
 3) Редактируем файл nod32ms.conf под себя
 4) запуск скачивания баз docker exec wrk python3 update.py
 5) Для раздачи баз антивирусам рекомендуется использовать NGINX, конфиг которого лежит тут же (папка nginx-configs, подбираем под свою версию nginx)
-
-
-Быстрый запуск в docker: docker compose up -d
 
 ВНИМАНИЕ! Скрипт ключи не ищет. Его задача подключиться к серверу зеркала баз NOD32 официальному (если у вас есть действующий логин и пароль) и не официальному, скачать базы и разложить
 по папкам, после чего через NGINX раздать антивирусам или другим зеркалам.
